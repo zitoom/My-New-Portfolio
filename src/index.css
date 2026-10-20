@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    /* Light mode values */
+    --color-surface: #f8faff;
+    --color-surface-dim: #f0f3fa;
+    --color-surface-lowest: #ffffff;
+    --color-surface-low: #f1f4fb;
+    --color-surface-container: #e6ebf6;
+    --color-surface-high: #dbe1ee;
+    --color-surface-highest: #d0d7e6;
+    --color-on-surface: #0e172a;
+    --color-on-surface-variant: #434c5e;
+    --color-outline: #727c90;
+    --color-outline-variant: #cbd3e2;
+    --color-primary: #1d4ed8;
+    --color-primary-container: #2563eb;
+    --color-on-primary: #ffffff;
+    --color-on-primary-container: #ffffff;
+    --color-tertiary: #0891b2;
+    --color-secondary: #4f46e5;
+  }
+
+  html.dark {
+    /* Stitch dark tokens */
+    --color-surface: #0c1322;
+    --color-surface-dim: #090e1a;
+    --color-surface-lowest: #070e1d;
+    --color-surface-low: #151b2b;
+    --color-surface-container: #191f2f;
+    --color-surface-high: #232a3a;
+    --color-surface-highest: #2e3545;
+    --color-on-surface: #dce2f8;
+    --color-on-surface-variant: #c2c6d6;
+    --color-outline: #8c909f;
+    --color-outline-variant: #424754;
+    --color-primary: #adc6ff;
+    --color-primary-container: #4d8eff;
+    --color-on-primary: #002e6a;
+    --color-on-primary-container: #00285d;
+    --color-tertiary: #2fd9f4;
+    --color-secondary: #bdc2ff;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+}
+
+/* Print styling for resume */
+@media print {
+  header, footer, .no-print {
+    display: none !important;
+  }
+  body, main {
+    background: #ffffff !important;
+    color: #111827 !important;
+    padding-top: 0 !important;
+    margin: 0 !important;
+  }
+  .print-page {
+    box-shadow: none !important;
+    border: none !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-lowest);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-outline);
+}
+
+/* LIGHT MODE OVERRIDES: Pure white background, dark typography, crisp elevated cards */
+html.light,
+html.light body,
+html.light main {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+html.light header {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-bottom-color: #e2e8f0 !important;
+}
+
+html.light footer {
+  background-color: #f8fafc !important;
+  border-top-color: #e2e8f0 !important;
+}
+
+/* Light backgrounds */
+html.light .bg-\[\#0c1322\] {
+  background-color: #ffffff !important;
+}
+
+html.light .bg-\[\#0c1322\]\/85,
+html.light .bg-\[\#0c1322\]\/80,
+html.light .bg-\[\#0c1322\]\/75 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+html.light .bg-\[\#070e1d\] {
+  background-color: #f8fafc !important;
+}
+
+html.light .bg-\[\#070e1d\]\/80,
+html.light .bg-\[\#070e1d\]\/85 {
+  background-color: rgba(248, 250, 252, 0.95) !important;
+}
+
+html.light .bg-\[\#151b2b\] {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+html.light .bg-\[\#151b2b\]\/80,
+html.light .bg-\[\#151b2b\]\/90 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+html.light .bg-\[\#191f2f\] {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .bg-\[\#191f2f\]\/80,
+html.light .bg-\[\#191f2f\]\/90 {
+  background-color: rgba(241, 245, 249, 0.92) !important;
+}
+
+html.light .bg-\[\#232a3a\] {
+  background-color: #e2e8f0 !important;
+}
+
+/* Light typography */
+html.light .text-\[\#dce2f8\] {
+  color: #0f172a !important;
+}
+
+html.light .text-\[\#c2c6d6\] {
+  color: #334155 !important;
+}
+
+html.light .text-\[\#8c909f\] {
+  color: #64748b !important;
+}
+
+html.light .text-\[\#adc6ff\] {
+  color: #1d4ed8 !important;
+}
+
+html.light .text-\[\#2fd9f4\] {
+  color: #0284c7 !important;
+}
+
+html.light .text-\[\#bdc2ff\] {
+  color: #4338ca !important;
+}
+
+/* Light borders */
+html.light [class*="border-\[\#424754\]"] {
+  border-color: #e2e8f0 !important;
+}
+
+/* Inputs and forms in light mode */
+html.light input,
+html.light textarea,
+html.light select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
